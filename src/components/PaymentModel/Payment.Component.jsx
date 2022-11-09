@@ -1,13 +1,17 @@
-import React from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment } from "react";
+import React from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import { Fragment } from 'react'
 
-const PaymentModel = ({ setIsOpen, isOpen, price }) => {
+
+
+
+const PaymentModel = ({setIsOpen, isOpen, price}) => {
+
   const closeModal = () => {
     setIsOpen(false);
-  };
+  }
 
-  const launchRazorPay = () => {
+  const launchRazorPay =() => {
     let options = {
       key: "rzp_test_Taf4Olo2TluDGc",
       amount: price * 100,
@@ -21,15 +25,15 @@ const PaymentModel = ({ setIsOpen, isOpen, price }) => {
         alert("Payment Successful");
       },
       theme: { color: "#c4242d" },
-    };
+    }
 
     let razorPay = window.Razorpay(options);
     razorPay.open();
-  };
+  }
 
   return (
     <>
-      <Transition appear show={isOpen} as={Fragment}>
+    <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-50" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
@@ -59,11 +63,11 @@ const PaymentModel = ({ setIsOpen, isOpen, price }) => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Please make a payment
+                    Please Make A Payment
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Hello please click non the below button to make a payment.
+                     Please click to continue
                     </p>
                   </div>
 
@@ -77,10 +81,10 @@ const PaymentModel = ({ setIsOpen, isOpen, price }) => {
                     </button>
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-200 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={closeModal}
                     >
-                      Cancle Payment
+                      Cancel payment
                     </button>
                   </div>
                 </Dialog.Panel>
@@ -90,7 +94,7 @@ const PaymentModel = ({ setIsOpen, isOpen, price }) => {
         </Dialog>
       </Transition>
     </>
-  );
-};
+  )
+}
 
-export default PaymentModel;
+export default PaymentModel
