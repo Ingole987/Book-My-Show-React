@@ -1,5 +1,7 @@
 import React from 'react';
-import{ BiChevronDown , BiMenu , BiSearch} from 'react-icons/bi';
+import { Link } from "react-router-dom"
+import{ BiChevronDown , BiMenu , BiSearch } from 'react-icons/bi';
+
 
 function NavSm(){
   return (
@@ -53,6 +55,13 @@ function NavLg(){
                     placeholder='Seasrch from movies, events, sports, activities'
                   />
             </div>
+          
+          <div className='flex items-center px-4 gap-3'>
+            <span className="text-gray-200 text-base flex items-center cursor-pointer hover:text-white">
+              <Link to="/Plays">Plays</Link>
+            </span>
+          </div>
+        
          </div>
            <div className='flex items-center gap-3'>
               <span className="text-gray-200 text-base flex items-center cursor-pointer hover:text-white">
@@ -69,6 +78,10 @@ function NavLg(){
     </>
   )
 }
+
+
+
+
 //Main Component
 const Navbar = () => {
   return (
